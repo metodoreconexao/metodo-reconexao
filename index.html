@@ -102,7 +102,6 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        /* Temporizador */
         .countdown-timer {
             background: linear-gradient(135deg, #ff6f00 0%, #ff8f00 100%);
             color: white;
@@ -690,7 +689,7 @@
         .guarantee h3 {
             color: #1b5e20;
             font-size: 1.6em;
-            margin-bottom: 16px;
+            margin: 0;
             font-weight: 700;
         }
         
@@ -813,10 +812,6 @@
     <div class="countdown-timer">
         <h3>⏰ Esta Oferta Expira Em:</h3>
         <div class="timer-display">
-            <div class="timer-box">
-                <span class="timer-number" id="hours">00</span>
-                <span class="timer-label">Horas</span>
-            </div>
             <div class="timer-box">
                 <span class="timer-number" id="minutes">00</span>
                 <span class="timer-label">Minutos</span>
@@ -993,10 +988,6 @@
                 <div class="testimonial-author">— J.M., 35 anos, Curitiba</div>
             </div>
         </div>
-        
-        <p style="font-size: 0.9em; color: #9e9e9e; text-align: center; margin-top: 24px;">
-            *Resultados podem variar. Depoimentos não representam garantia de resultados iguais.
-        </p>
     </section>
     
     <section>
@@ -1040,7 +1031,7 @@
             <div class="bonus-card">
                 <div class="bonus-icon">🎧</div>
                 <h4>Kit SOS Ansiedade</h4>
-                <p>3 Áudios Guiados (5 min cada)</p>
+                <p>Áudios Guiados</p>
             </div>
             
             <div class="bonus-card">
@@ -1072,7 +1063,7 @@
             </div>
             
             <div class="value-item">
-                <div class="value-item-name">Kit SOS Ansiedade (3 Áudios)</div>
+                <div class="value-item-name">Kit SOS Ansiedade (Áudios)</div>
                 <div class="value-item-price strikethrough">US$ 7</div>
             </div>
             
@@ -1108,7 +1099,6 @@
     
     <div class="guarantee">
         <h3>🛡️ GARANTIA TOTAL DE 7 DIAS</h3>
-        <p>Aplique o Protocolo das 3 Ondas por 7 dias completos. Se não ver NENHUM sinal de mudança (mesmo pequeno), peça reembolso total. Sem perguntas, sem burocracia. Seu risco é ZERO.</p>
     </div>
     
     <section>
@@ -1172,31 +1162,27 @@
 
 <div class="footer">
     <p>© 2025 Método ReConexão — Todos os direitos reservados</p>
-    <p style="margin-top: 12px;">Este site não é afiliado ao Facebook ou qualquer entidade do Facebook.</p>
     <p style="margin-top: 8px;">Política de Privacidade | Termos de Uso</p>
 </div>
 
 <script>
-// Temporizador cuenta regresiva (24 horas desde que se carga la página)
+// Temporizador 15 minutos
 function startCountdown() {
     const now = new Date().getTime();
-    const endTime = now + (24 * 60 * 60 * 1000); // 24 horas
+    const endTime = now + (15 * 60 * 1000); // 15 minutos
     
     const timer = setInterval(function() {
         const currentTime = new Date().getTime();
         const distance = endTime - currentTime;
         
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
         document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         
         if (distance < 0) {
             clearInterval(timer);
-            document.getElementById('hours').textContent = '00';
             document.getElementById('minutes').textContent = '00';
             document.getElementById('seconds').textContent = '00';
         }
@@ -1205,7 +1191,7 @@ function startCountdown() {
 
 startCountdown();
 
-// Notificaciones de compra (20 nombres)
+// Notificaciones
 const buyers = [
     {name: "Sonia Perez", location: "Rio de Janeiro"},
     {name: "Ana Clara", location: "São Paulo"},
