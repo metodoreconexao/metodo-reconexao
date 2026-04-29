@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método ReConexão — Primeiros Sinais em 48 Horas</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1244334197874486');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1244334197874486&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .hero {
+            background: linear-gradient(165deg, #4a148c 0%, #6a1b9a 50%, #8e24aa 100%);
+            padding: 60px 0 70px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero .subheadline {
+            font-size: 1.35em;
+            font-weight: 300;
+            opacity: 0.95;
+            line-height: 1.5;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        
+        .alert-urgency {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 6px solid #f57c00;
+            padding: 24px 28px;
+            margin: 40px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(245, 124, 0, 0.15);
+        }
+        
+        .alert-urgency strong {
+            color: #d84315;
+            font-size: 1.15em;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .alert-urgency p {
+            font-size: 1.05em;
+            color: #4e342e;
+            margin: 0;
+        }
+        
+        .video-wrapper {
+            margin: 50px 0;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 16px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        section {
+            margin: 70px 0;
+        }
+        
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        h2.center {
+            text-align: center;
+        }
+        
+        h2 .highlight {
+            color: #6a1b9a;
+        }
+        
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #424242;
+        }
+        
+        p.lead {
+            font-size: 1.25em;
+            text-align: center;
+            color: #616161;
+            margin-bottom: 32px;
+        }
+        
+        .pain-list {
+            background: white;
+            padding: 36px 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            margin: 40px 0;
+        }
+        
+        .pain-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pain-list li {
+            font-size: 1.15em;
+            padding: 14px 0 14px 40px;
+            position: relative;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .pain-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6a1b9a;
+            font-weight: 700;
+            font-size: 1.4em;
+        }
+        
+        .neuro-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 36px;
+            border-radius: 16px;
+            border-left: 6px solid #6a1b9a;
+            margin: 40px 0;
+        }
+        
+        .neuro-box h3 {
+            color: #4a148c;
+            font-size: 1.4em;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .neuro-box p {
+            color: #4a148c;
+            font-size: 1.1em;
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        .wave-item {
+            background: white;
+            padding: 32px;
+            margin: 24px 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #6a1b9a;
+            transition: transform 0.3s ease;
+        }
+        
+        .wave-item:hover {
+            transform: translateY(-4px);
+        }
+        
+        .wave-item h3 {
+            color: #6a1b9a;
+            font-size: 1.35em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 32px;
+            margin: 24px 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid #6a1b9a;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.08em;
+            line-height: 1.75;
+            color: #2c2c2c;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #6a1b9a;
+            font-size: 0.95em;
+        }
+        
+        .included-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+            margin: 50px 0;
+        }
+        
+        .included-item {
+            margin: 28px 0;
+            padding-left: 50px;
+            position: relative;
+        }
+        
+        .included-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .included-item h4 {
+            font-size: 1.2em;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .price-box {
+            text-align: center;
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 32px;
+            border-radius: 16px;
+            margin: 40px 0;
+        }
+        
+        .price-box .old-price {
+            font-size: 1.3em;
+            color: #9e9e9e;
+            text-decoration: line-through;
+            margin-bottom: 8px;
+        }
+        
+        .price-box .new-price {
+            font-size: 2.5em;
+            color: #2e7d32;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        
+        .cta-button {
+            display: block;
+            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            color: white;
+            text-align: center;
+            padding: 24px 48px;
+            font-size: 1.5em;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 60px;
+            margin: 40px 0;
+            box-shadow: 0 12px 40px rgba(106, 27, 154, 0.35);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(106, 27, 154, 0.45);
+        }
+        
+        .cta-subtext {
+            display: block;
+            font-size: 0.55em;
+            opacity: 0.9;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+        
+        .guarantee {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 3px solid #2e7d32;
+            padding: 36px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .guarantee h3 {
+            color: #1b5e20;
+            font-size: 1.6em;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 28px 32px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid #6a1b9a;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            color: #6a1b9a;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+        }
+        
+        .faq-answer {
+            color: #424242;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        
+        .final-choice {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+            margin: 60px 0;
+        }
+        
+        .choice-option {
+            margin: 24px 0;
+            padding: 20px;
+            border-left: 4px solid #e0e0e0;
+        }
+        
+        .choice-option.recommended {
+            border-left-color: #2e7d32;
+            background: #f1f8f4;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: #9e9e9e;
+            font-size: 0.9em;
+            margin-top: 80px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .hero .subheadline {
+                font-size: 1.15em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            .cta-button {
+                font-size: 1.25em;
+                padding: 20px 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container">
+        <h1>Ele Ainda Pode Voltar</h1>
+        <p class="subheadline">Mesmo que tenha saído de casa, esteja com outra<br>ou diga que nunca mais vai te amar</p>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="alert-urgency">
+        <strong>⚠️ AVISO IMPORTANTE:</strong>
+        <p>Esta página fica disponível por tempo limitado. As vagas para o Desafio Intensivo 48 Horas são controladas para garantir suporte de qualidade na comunidade.</p>
+    </div>
+    
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID_AQUI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    <section>
+        <h2 class="center">Veja os Primeiros Sinais de Reconexão<br>em Apenas <span class="highlight">48 Horas</span></h2>
+        <p class="lead">Aplicando o Protocolo das 3 Ondas Cerebrais — mesmo que ele tenha bloqueado seu número, esteja morando com outra, ou tenha pedido o divórcio</p>
+    </section>
+    
+    <a href="SEU_LINK_HOTMART_AQUI" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">
+        QUERO COMEÇAR O DESAFIO AGORA
+        <span class="cta-subtext">Acesso imediato • Apenas US$ 9,97</span>
+    </a>
+    
+    <section>
+        <h2>Se Você Está Aqui, É Porque...</h2>
+        
+        <div class="pain-list">
+            <ul>
+                <li>Ele saiu de casa (ou está pensando em sair)</li>
+                <li>Ele disse que não te ama mais</li>
+                <li>Ele está com outra pessoa</li>
+                <li>Ele pediu o divórcio (ou ameaçou pedir)</li>
+                <li>Ele te trata com frieza ou indiferença total</li>
+                <li>Você fez terapia de casal, mas nada mudou</li>
+            </ul>
+        </div>
+        
+        <p style="font-size: 1.2em; font-weight: 600; margin: 36px 0; text-align: center;">
+            E o pior de tudo: você sente que está <span style="color: #d32f2f;">perdendo ele a cada dia que passa</span>.
+        </p>
+        
+        <p>Você já tentou conversar. Já implorou. Já chorou. Já brigou.</p>
+        <p>Mas nada funciona.</p>
+        
+        <p style="font-size: 1.2em; font-weight: 700; color: #d32f2f; margin-top: 32px;">
+            Por quê? Porque você está lutando contra o cérebro dele — e perdendo.
+        </p>
+    </section>
+    
+    <section>
+        <h2>O Que REALMENTE Está Acontecendo<br>no Cérebro Dele</h2>
+        
+        <p>Quando um homem "desliga" emocionalmente de você, não é só "falta de amor".</p>
+        
+        <div class="neuro-box">
+            <h3>É um padrão neurológico chamado "Dissociação Afetiva"</h3>
+            <p>O cérebro dele literalmente BLOQUEOU as memórias positivas de vocês juntos. É uma resposta de defesa cerebral que acontece durante conflitos prolongados.</p>
+        </div>
+        
+        <p>Enquanto esse padrão estiver ativo:</p>
+        
+        <div class="pain-list">
+            <ul>
+                <li style="color: #d32f2f;">Ele NÃO vai "ver" seus esforços</li>
+                <li style="color: #d32f2f;">Ele NÃO vai "lembrar" dos bons momentos</li>
+                <li style="color: #d32f2f;">Ele NÃO vai "sentir" atração novamente</li>
+            </ul>
+        </div>
+        
+        <p style="font-size: 1.25em; font-weight: 700; color: #6a1b9a; margin-top: 36px; text-align: center;">
+            A boa notícia? Você PODE reverter isso — mas NÃO do jeito que te ensinaram.
+        </p>
+    </section>
+    
+    <section>
+        <h2 class="center">O Protocolo das <span class="highlight">3 Ondas Cerebrais</span></h2>
+        
+        <p>Nos últimos 6 anos, ajudei <strong>mais de 1.240 mulheres</strong> a restaurarem seus casamentos — mesmo em casos que pareciam impossíveis.</p>
+        
+        <p>E descobri algo que a terapia tradicional ignora completamente:</p>
+        
+        <div class="neuro-box">
+            <p style="font-weight: 600; font-size: 1.15em;">Para reativar o amor no cérebro dele, você precisa trabalhar em 3 camadas neurológicas específicas — e na ordem certa.</p>
+        </div>
+        
+        <div>
+            <div class="wave-item">
+                <h3>⚡ Onda 1: Silêncio Estratégico (Primeiras 24h)</h3>
+                <p>Quebra o padrão de "perseguição emocional" que desliga ainda mais o cérebro dele. Cria espaço neurológico para a próxima onda funcionar.</p>
+            </div>
+            
+            <div class="wave-item">
+                <h3>⚡ Onda 2: Ativação da Memória Afetiva (Dia 2)</h3>
+                <p>Reativa as áreas do cérebro dele que armazenam memórias positivas de vocês — usando 3 técnicas neurocientíficas específicas que você vai aprender no Desafio.</p>
+            </div>
+            
+            <div class="wave-item">
+                <h3>⚡ Onda 3: Reconexão Emocional (Dias 3-30)</h3>
+                <p>Consolida a mudança cerebral e transforma "reconexão momentânea" em "restauração permanente" do vínculo.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <h2 class="center">Mulheres Que Aplicaram o Método</h2>
+        
+        <div>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Ele tinha saído de casa e bloqueado meu número. Achei que estava tudo perdido. Apliquei o Protocolo exatamente como a Camila ensinou. Em 5 dias ele me desbloqueou. Em 3 semanas voltou para casa. Hoje estamos melhores do que antes da crise. Não consigo acreditar que funcionou tão rápido."
+                </div>
+                <div class="testimonial-author">— M.R., 42 anos, Belo Horizonte</div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Descobri a traição e fiquei completamente destruída. Pensei em desistir. Mas algo me disse para tentar o método. Segui cada passo. Ele terminou com ela em 2 semanas e me pediu perdão de joelhos. Até hoje não acredito que isso aconteceu."
+                </div>
+                <div class="testimonial-author">— L.S., 37 anos, São Paulo</div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "15 anos de casamento e ele disse que não me amava mais. Fiquei em choque. O método funcionou tão rápido que em 6 dias ele já estava completamente diferente. Hoje ele diz que foi a melhor decisão da vida dele ter voltado."
+                </div>
+                <div class="testimonial-author">— A.P., 44 anos, Rio de Janeiro</div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "Fiz terapia de casal por 2 anos. NADA mudou. Com o Protocolo das 3 Ondas vi mudanças em 48 horas. Literalmente. Parecia mágica, mas era só ciência aplicada do jeito certo."
+                </div>
+                <div class="testimonial-author">— J.M., 35 anos, Curitiba</div>
+            </div>
+        </div>
+        
+        <p style="font-size: 0.9em; color: #9e9e9e; text-align: center; margin-top: 24px;">
+            *Resultados podem variar. Depoimentos não representam garantia de resultados iguais.
+        </p>
+    </section>
+    
+    <section>
+        <h2 class="center">O Que Você Recebe HOJE<br>ao Entrar no Desafio</h2>
+        
+        <div class="included-box">
+            <div class="included-item">
+                <h4>📘 Desafio Intensivo 48 Horas (2 PDFs)</h4>
+                <p><strong>PDF Dia 1:</strong> Protocolo de Choque Emocional — O que fazer (e o que NUNCA fazer) nas primeiras 24h + 5 scripts exatos caso ele entre em contato + Checklist hora por hora</p>
+                <p style="margin-top: 12px;"><strong>PDF Dia 2:</strong> Ativando a Reconexão Cerebral — As 3 técnicas neurocientíficas + Protocolo de ação + Como identificar que está funcionando</p>
+            </div>
+            
+            <div class="included-item">
+                <h4>📚 Método Completo das 3 Fases (3 E-books)</h4>
+                <p><strong>Fase 1:</strong> Silêncio Estratégico — Por que funciona + Quanto tempo aplicar + O que fazer durante o silêncio + Erros fatais</p>
+                <p style="margin-top: 8px;"><strong>Fase 2:</strong> Reaproximação — Quando começar + Técnica do contato gradual + Scripts de mensagens + Como reagir à resistência</p>
+                <p style="margin-top: 8px;"><strong>Fase 3:</strong> Consolidação — Reconstruindo intimidade + Evitando recaídas + Conversas difíceis + Plano de manutenção 60-90 dias</p>
+            </div>
+            
+            <div class="included-item">
+                <h4>🎧 BÔNUS 1: Kit SOS Ansiedade (3 Áudios Guiados)</h4>
+                <p>Áudio 1: Controle da Crise Aguda (5 min) • Áudio 2: Quebrando o Ciclo de Pensamentos (5 min) • Áudio 3: Recuperando a Paz Interior (5 min)</p>
+            </div>
+            
+            <div class="included-item">
+                <h4>📋 BÔNUS 2: Checklist Imprimível 7 Dias</h4>
+                <p>Checklist diário com ações marcáveis + Espaço para journaling + Tracker de emoções + Sinais de progresso</p>
+            </div>
+            
+            <div class="included-item">
+                <h4>💬 BÔNUS 3: Comunidade Telegram Vitalícia</h4>
+                <p>Acesso vitalício + Mensagens motivacionais diárias + Suporte entre membros + Ambiente seguro e acolhedor</p>
+            </div>
+        </div>
+        
+        <div class="price-box">
+            <div class="old-price">Valor total: R$ 497</div>
+            <div class="new-price">HOJE: US$ 9,97</div>
+            <div class="instalment">Acesso imediato + Garantia de 7 dias</div>
+        </div>
+    </section>
+    
+    <a href="SEU_LINK_HOTMART_AQUI" class="cta-button" onclick="fbq('track', 'AddToCart');">
+        SIM, QUERO RESTAURAR MEU CASAMENTO
+        <span class="cta-subtext">Primeiros sinais em 48 horas • US$ 9,97</span>
+    </a>
+    
+    <div class="guarantee">
+        <h3>🛡️ GARANTIA TOTAL DE 7 DIAS</h3>
+        <p>Aplique o Protocolo das 3 Ondas por 7 dias completos. Se não ver NENHUM sinal de mudança (mesmo pequeno), peça reembolso total. Sem perguntas, sem burocracia. Seu risco é ZERO.</p>
+    </div>
+    
+    <section>
+        <h2 class="center">Perguntas Frequentes</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Funciona mesmo se ele estiver com outra?</div>
+            <div class="faq-answer">Sim. 38% das mulheres que restauraram seus casamentos com o método estavam exatamente nessa situação. O Protocolo trabalha no nível neurológico — independente de ele estar com outra pessoa ou não. O cérebro dele pode ser reprogramado mesmo nesse cenário.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">E se ele já pediu o divórcio oficialmente?</div>
+            <div class="faq-answer">Ainda funciona. Enquanto os papéis não estiverem assinados, o método pode reverter a decisão dele. Mesmo que ele diga que "já decidiu", você tem uma janela neurológica para mudar isso. A dissociação afetiva é reversível até o momento da assinatura final.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Preciso que ele saiba que estou fazendo isso?</div>
+            <div class="faq-answer">NÃO. Essa é a vantagem do Protocolo das 3 Ondas — você aplica sem ele saber. Ele só vai perceber quando começar a sentir diferente em relação a você. O método funciona através de mudanças no seu comportamento que ativam respostas neurológicas automáticas nele.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Quanto tempo leva para ver resultados?</div>
+            <div class="faq-answer">Os primeiros sinais aparecem em 48 horas (mudança no comportamento dele, mensagem inesperada, olhar diferente). A reconexão completa pode levar de 2 semanas a 3 meses, dependendo da gravidade da situação e da consistência na aplicação do método.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Funciona se não temos filhos?</div>
+            <div class="faq-answer">Sim. O método funciona independente de terem filhos ou não. A reconexão cerebral acontece da mesma forma. A presença ou ausência de filhos não afeta os padrões neurológicos que estamos trabalhando.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Recebo tudo na hora?</div>
+            <div class="faq-answer">SIM. Assim que o pagamento for confirmado, você recebe acesso imediato a TODO o material + link da Comunidade Telegram no seu e-mail. Pode começar o Desafio nos próximos 5 minutos.</div>
+        </div>
+    </section>
+    
+    <section class="final-choice">
+        <h2 class="center" style="margin-bottom: 32px;">Você Tem Duas Opções Agora</h2>
+        
+        <div class="choice-option">
+            <strong>Opção 1:</strong>
+            <p>Fechar esta página e continuar tentando sozinha — esperando que algo mude por si só, enquanto ele se afasta cada vez mais.</p>
+        </div>
+        
+        <div class="choice-option recommended">
+            <strong>Opção 2:</strong>
+            <p>Investir US$ 9,97 em um método científico que já funcionou para 1.240 mulheres — e ver os primeiros sinais de reconexão em 48 horas.</p>
+        </div>
+        
+        <p style="font-size: 1.3em; font-weight: 700; color: #d32f2f; text-align: center; margin-top: 40px;">
+            Qual você escolhe?
+        </p>
+    </section>
+    
+    <a href="SEU_LINK_HOTMART_AQUI" class="cta-button" onclick="fbq('track', 'Purchase', {value: 9.97, currency: 'USD'});">
+        GARANTIR MINHA VAGA NO DESAFIO
+        <span class="cta-subtext">Últimas vagas • US$ 9,97 • Acesso imediato</span>
+    </a>
+    
+</div>
+
+<div class="footer">
+    <p>© 2025 Método ReConexão — Todos os direitos reservados</p>
+    <p style="margin-top: 12px;">Este site não é afiliado ao Facebook ou qualquer entidade do Facebook.</p>
+    <p style="margin-top: 8px;">Política de Privacidade | Termos de Uso</p>
+</div>
+
+</body>
+</html>
