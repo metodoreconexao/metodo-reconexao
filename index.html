@@ -221,6 +221,14 @@
             font-weight: 700;
         }
         
+        /* Estrellas testimonios */
+        .stars {
+            color: #ffc107;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        
         .testimonial {
             background: white;
             padding: 32px;
@@ -282,6 +290,80 @@
             font-weight: 700;
         }
         
+        /* Portadas de bonos */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .bonus-card {
+            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            padding: 40px 24px;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 30px rgba(106, 27, 154, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .bonus-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bonus-card .bonus-icon {
+            font-size: 3em;
+            margin-bottom: 16px;
+        }
+        
+        .bonus-card h4 {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .bonus-card p {
+            font-size: 0.95em;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        /* Para quién es */
+        .for-who-grid {
+            display: grid;
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .for-who-item {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 32px;
+            border-radius: 16px;
+            border-left: 5px solid #6a1b9a;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .for-who-item .icon {
+            font-size: 2.5em;
+            flex-shrink: 0;
+        }
+        
+        .for-who-item h4 {
+            color: #4a148c;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .for-who-item p {
+            color: #4a148c;
+            font-size: 1.05em;
+            margin: 0;
+        }
+        
         .price-box {
             text-align: center;
             background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
@@ -304,6 +386,7 @@
             margin-bottom: 12px;
         }
         
+        /* Botón animado */
         .cta-button {
             display: block;
             background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
@@ -317,11 +400,22 @@
             margin: 40px 0;
             box-shadow: 0 12px 40px rgba(106, 27, 154, 0.35);
             transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 16px 50px rgba(106, 27, 154, 0.45);
+            animation: none;
         }
         
         .cta-subtext {
@@ -330,6 +424,64 @@
             opacity: 0.9;
             margin-top: 10px;
             font-weight: 400;
+        }
+        
+        /* Notificaciones de compra */
+        .purchase-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .purchase-notification.show {
+            display: flex;
+        }
+        
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        .notification-text {
+            flex: 1;
+        }
+        
+        .notification-text strong {
+            color: #6a1b9a;
+            display: block;
+            font-size: 0.95em;
+        }
+        
+        .notification-text span {
+            color: #757575;
+            font-size: 0.85em;
         }
         
         .guarantee {
@@ -415,10 +567,29 @@
                 font-size: 1.25em;
                 padding: 20px 36px;
             }
+            
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .purchase-notification {
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
 <body>
+
+<!-- Notificación de compra -->
+<div class="purchase-notification" id="purchaseNotification">
+    <div class="notification-icon">✓</div>
+    <div class="notification-text">
+        <strong id="buyerName">María Silva</strong>
+        <span id="buyerLocation">de São Paulo acaba de comprar</span>
+    </div>
+</div>
 
 <div class="hero">
     <div class="container">
@@ -528,11 +699,43 @@
         </div>
     </section>
     
+    <!-- SECCIÓN PARA QUIÉN ES -->
+    <section>
+        <h2 class="center">Para Quem É Este Método?</h2>
+        
+        <div class="for-who-grid">
+            <div class="for-who-item">
+                <div class="icon">💔</div>
+                <div>
+                    <h4>Mulheres que NÃO querem desistir</h4>
+                    <p>Você ainda ama ele e acredita que o casamento vale a pena lutar. Não importa o que os outros dizem — você sente que ainda há esperança.</p>
+                </div>
+            </div>
+            
+            <div class="for-who-item">
+                <div class="icon">🧠</div>
+                <div>
+                    <h4>Mulheres cansadas de terapias que não funcionam</h4>
+                    <p>Você já tentou terapia de casal, conversas intermináveis, livros de autoajuda — mas nada mudou. Você precisa de algo que REALMENTE funcione.</p>
+                </div>
+            </div>
+            
+            <div class="for-who-item">
+                <div class="icon">⏰</div>
+                <div>
+                    <h4>Mulheres que precisam de resultados RÁPIDOS</h4>
+                    <p>Você sente que está perdendo ele a cada dia. Não tem tempo para esperar meses. Precisa ver sinais de mudança AGORA — nas próximas 48 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section>
         <h2 class="center">Mulheres Que Aplicaram o Método</h2>
         
         <div>
             <div class="testimonial">
+                <div class="stars">★★★★★</div>
                 <div class="testimonial-text">
                     "Ele tinha saído de casa e bloqueado meu número. Achei que estava tudo perdido. Apliquei o Protocolo exatamente como a Camila ensinou. Em 5 dias ele me desbloqueou. Em 3 semanas voltou para casa. Hoje estamos melhores do que antes da crise. Não consigo acreditar que funcionou tão rápido."
                 </div>
@@ -540,6 +743,7 @@
             </div>
             
             <div class="testimonial">
+                <div class="stars">★★★★★</div>
                 <div class="testimonial-text">
                     "Descobri a traição e fiquei completamente destruída. Pensei em desistir. Mas algo me disse para tentar o método. Segui cada passo. Ele terminou com ela em 2 semanas e me pediu perdão de joelhos. Até hoje não acredito que isso aconteceu."
                 </div>
@@ -547,6 +751,7 @@
             </div>
             
             <div class="testimonial">
+                <div class="stars">★★★★★</div>
                 <div class="testimonial-text">
                     "15 anos de casamento e ele disse que não me amava mais. Fiquei em choque. O método funcionou tão rápido que em 6 dias ele já estava completamente diferente. Hoje ele diz que foi a melhor decisão da vida dele ter voltado."
                 </div>
@@ -554,6 +759,7 @@
             </div>
             
             <div class="testimonial">
+                <div class="stars">★★★★★</div>
                 <div class="testimonial-text">
                     "Fiz terapia de casal por 2 anos. NADA mudou. Com o Protocolo das 3 Ondas vi mudanças em 48 horas. Literalmente. Parecia mágica, mas era só ciência aplicada do jeito certo."
                 </div>
@@ -571,36 +777,44 @@
         
         <div class="included-box">
             <div class="included-item">
-                <h4>📘 Desafio Intensivo 48 Horas (2 PDFs)</h4>
-                <p><strong>PDF Dia 1:</strong> Protocolo de Choque Emocional — O que fazer (e o que NUNCA fazer) nas primeiras 24h + 5 scripts exatos caso ele entre em contato + Checklist hora por hora</p>
-                <p style="margin-top: 12px;"><strong>PDF Dia 2:</strong> Ativando a Reconexão Cerebral — As 3 técnicas neurocientíficas + Protocolo de ação + Como identificar que está funcionando</p>
+                <h4>📘 Desafio Intensivo 48 Horas</h4>
+                <p><strong>Protocolo de Choque Emocional:</strong> O que fazer (e o que NUNCA fazer) nas primeiras 24h + 5 scripts exatos caso ele entre em contato + Checklist hora por hora</p>
+                <p style="margin-top: 12px;"><strong>Ativação da Reconexão Cerebral:</strong> As 3 técnicas neurocientíficas + Protocolo de ação + Como identificar que está funcionando</p>
             </div>
             
             <div class="included-item">
-                <h4>📚 Método Completo das 3 Fases (3 E-books)</h4>
-                <p><strong>Fase 1:</strong> Silêncio Estratégico — Por que funciona + Quanto tempo aplicar + O que fazer durante o silêncio + Erros fatais</p>
-                <p style="margin-top: 8px;"><strong>Fase 2:</strong> Reaproximação — Quando começar + Técnica do contato gradual + Scripts de mensagens + Como reagir à resistência</p>
-                <p style="margin-top: 8px;"><strong>Fase 3:</strong> Consolidação — Reconstruindo intimidade + Evitando recaídas + Conversas difíceis + Plano de manutenção 60-90 dias</p>
+                <h4>📚 Método Completo das 3 Fases</h4>
+                <p><strong>Fase 1 – Silêncio Estratégico:</strong> Por que funciona + Quanto tempo aplicar + O que fazer durante o silêncio + Erros fatais</p>
+                <p style="margin-top: 8px;"><strong>Fase 2 – Restablecimento do Contacto:</strong> Quando começar + Técnica do contato gradual + Scripts de mensagens + Como reagir à resistência</p>
+                <p style="margin-top: 8px;"><strong>Fase 3 – Consolidação e Reconstrução da Intimidade:</strong> Reconstruindo intimidade + Evitando recaídas + Conversas difíceis + Plano de manutenção 60-90 dias</p>
+            </div>
+        </div>
+        
+        <h2 class="center" style="margin-top: 60px;">Bônus Especiais Incluídos</h2>
+        <p class="lead">Recursos adicionais para acelerar seu processo de reconexão e te dar suporte emocional a cada passo</p>
+        
+        <div class="bonus-grid">
+            <div class="bonus-card">
+                <div class="bonus-icon">🎧</div>
+                <h4>Kit SOS Ansiedade</h4>
+                <p>3 Áudios Guiados (5 min cada)</p>
             </div>
             
-            <div class="included-item">
-                <h4>🎧 BÔNUS 1: Kit SOS Ansiedade (3 Áudios Guiados)</h4>
-                <p>Áudio 1: Controle da Crise Aguda (5 min) • Áudio 2: Quebrando o Ciclo de Pensamentos (5 min) • Áudio 3: Recuperando a Paz Interior (5 min)</p>
+            <div class="bonus-card">
+                <div class="bonus-icon">📋</div>
+                <h4>Checklist 7 Dias</h4>
+                <p>Guia imprimível com tracker de emoções</p>
             </div>
             
-            <div class="included-item">
-                <h4>📋 BÔNUS 2: Checklist Imprimível 7 Dias</h4>
-                <p>Checklist diário com ações marcáveis + Espaço para journaling + Tracker de emoções + Sinais de progresso</p>
-            </div>
-            
-            <div class="included-item">
-                <h4>💬 BÔNUS 3: Comunidade Telegram Vitalícia</h4>
-                <p>Acesso vitalício + Mensagens motivacionais diárias + Suporte entre membros + Ambiente seguro e acolhedor</p>
+            <div class="bonus-card">
+                <div class="bonus-icon">💬</div>
+                <h4>Comunidade Telegram</h4>
+                <p>Acesso vitalício + suporte entre membros</p>
             </div>
         </div>
         
         <div class="price-box">
-            <div class="old-price">Valor total: R$ 47</div>
+            <div class="old-price">Valor total: US$ 47</div>
             <div class="new-price">HOJE: US$ 9,97</div>
             <div class="instalment">Acesso imediato + Garantia de 7 dias</div>
         </div>
@@ -680,6 +894,45 @@
     <p style="margin-top: 12px;">Este site não é afiliado ao Facebook ou qualquer entidade do Facebook.</p>
     <p style="margin-top: 8px;">Política de Privacidade | Termos de Uso</p>
 </div>
+
+<script>
+// Sistema de notificaciones de compra
+const buyers = [
+    {name: "Sonia Perez", location: "Rio de Janeiro"},
+    {name: "Ana Clara", location: "São Paulo"},
+    {name: "Beatriz Santos", location: "Belo Horizonte"},
+    {name: "Juliana Costa", location: "Porto Alegre"},
+    {name: "Fernanda Lima", location: "Curitiba"},
+    {name: "Patricia Oliveira", location: "Brasília"},
+    {name: "Mariana Silva", location: "Salvador"},
+    {name: "Renata Alves", location: "Recife"},
+    {name: "Camila Rocha", location: "Fortaleza"},
+    {name: "Daniela Martins", location: "Manaus"}
+];
+
+function showPurchaseNotification() {
+    const notification = document.getElementById('purchaseNotification');
+    const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
+    
+    document.getElementById('buyerName').textContent = randomBuyer.name;
+    document.getElementById('buyerLocation').textContent = `de ${randomBuyer.location} acaba de comprar`;
+    
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 5000);
+}
+
+// Mostrar primera notificación después de 10 segundos
+setTimeout(showPurchaseNotification, 10000);
+
+// Luego cada 25-40 segundos aleatoriamente
+setInterval(() => {
+    const randomDelay = Math.floor(Math.random() * 15000) + 25000;
+    setTimeout(showPurchaseNotification, randomDelay);
+}, 40000);
+</script>
 
 </body>
 </html>
