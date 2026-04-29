@@ -46,7 +46,6 @@
             padding: 0 24px;
         }
         
-        /* Hero con imagen de fondo */
         .hero {
             background: linear-gradient(135deg, rgba(156, 39, 176, 0.85) 0%, rgba(142, 36, 170, 0.9) 100%), 
                         url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&q=80') center/cover;
@@ -101,6 +100,53 @@
             font-size: 1.1em;
             font-weight: 600;
             border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Temporizador */
+        .countdown-timer {
+            background: linear-gradient(135deg, #ff6f00 0%, #ff8f00 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(255, 111, 0, 0.3);
+        }
+        
+        .countdown-timer h3 {
+            font-size: 1.3em;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .timer-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            border-radius: 12px;
+            min-width: 80px;
+        }
+        
+        .timer-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            display: block;
+            line-height: 1;
+        }
+        
+        .timer-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .alert-urgency {
@@ -231,7 +277,6 @@
             line-height: 1.7;
         }
         
-        /* Portadas estilo visual */
         .method-covers {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -379,7 +424,6 @@
             font-size: 0.95em;
         }
         
-        /* Sección "Todo lo que llevas" */
         .value-breakdown {
             background: white;
             padding: 40px;
@@ -398,6 +442,9 @@
         
         .value-item:last-child {
             border-bottom: none;
+        }
+        
+        .value-total {
             padding-top: 30px;
             margin-top: 20px;
             border-top: 3px solid #9c27b0;
@@ -418,16 +465,39 @@
             color: #9e9e9e;
         }
         
-        .value-item:last-child .value-item-name {
-            font-size: 1.4em;
-            color: #9c27b0;
+        .value-total .value-item-name {
+            font-size: 1.3em;
+            color: #1a1a1a;
             font-weight: 700;
         }
         
-        .value-item:last-child .value-item-price {
-            font-size: 1.6em;
+        .value-total .value-item-price {
+            font-size: 1.4em;
+            color: #9e9e9e;
+            text-decoration: line-through;
+        }
+        
+        .final-price-row {
+            margin-top: 24px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .final-price-row .value-item-name {
+            font-size: 1.5em;
+            color: #6a1b9a;
+            font-weight: 800;
+        }
+        
+        .final-price-row .value-item-price {
+            font-size: 2em;
             color: #2e7d32;
             font-weight: 800;
+            text-decoration: none;
         }
         
         .highlight-number {
@@ -510,28 +580,6 @@
             color: #6a1b9a;
             font-size: 1.05em;
             margin: 0;
-        }
-        
-        .price-box {
-            text-align: center;
-            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-            padding: 32px;
-            border-radius: 16px;
-            margin: 40px 0;
-        }
-        
-        .price-box .old-price {
-            font-size: 1.3em;
-            color: #9e9e9e;
-            text-decoration: line-through;
-            margin-bottom: 8px;
-        }
-        
-        .price-box .new-price {
-            font-size: 2.5em;
-            color: #2e7d32;
-            font-weight: 800;
-            margin-bottom: 12px;
         }
         
         .cta-button {
@@ -724,6 +772,19 @@
                 right: 10px;
                 bottom: 10px;
             }
+            
+            .timer-display {
+                gap: 8px;
+            }
+            
+            .timer-box {
+                min-width: 70px;
+                padding: 12px 16px;
+            }
+            
+            .timer-number {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
@@ -749,6 +810,24 @@
 
 <div class="container">
     
+    <div class="countdown-timer">
+        <h3>⏰ Esta Oferta Expira Em:</h3>
+        <div class="timer-display">
+            <div class="timer-box">
+                <span class="timer-number" id="hours">00</span>
+                <span class="timer-label">Horas</span>
+            </div>
+            <div class="timer-box">
+                <span class="timer-number" id="minutes">00</span>
+                <span class="timer-label">Minutos</span>
+            </div>
+            <div class="timer-box">
+                <span class="timer-number" id="seconds">00</span>
+                <span class="timer-label">Segundos</span>
+            </div>
+        </div>
+    </div>
+    
     <div class="alert-urgency">
         <strong>⚠️ AVISO IMPORTANTE:</strong>
         <p>Esta página fica disponível por tempo limitado. As vagas para o Desafio Intensivo 48 Horas são controladas para garantir suporte de qualidade na comunidade.</p>
@@ -765,7 +844,7 @@
     
     <a href="SEU_LINK_HOTMART_AQUI" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">
         QUERO COMEÇAR O DESAFIO AGORA
-        <span class="cta-subtext">Acesso imediato • Apenas US$ 9,97</span>
+        <span class="cta-subtext">Acesso imediato • Apenas US$ 9,99</span>
     </a>
     
     <section>
@@ -984,42 +1063,47 @@
         <div class="value-breakdown">
             <div class="value-item">
                 <div class="value-item-name">Desafio Intensivo 48 Horas</div>
-                <div class="value-item-price strikethrough">US$ 29</div>
-            </div>
-            
-            <div class="value-item">
-                <div class="value-item-name">Método Completo 3 Fases</div>
-                <div class="value-item-price strikethrough">US$ 47</div>
-            </div>
-            
-            <div class="value-item">
-                <div class="value-item-name">Kit SOS Ansiedade</div>
                 <div class="value-item-price strikethrough">US$ 19</div>
             </div>
             
             <div class="value-item">
-                <div class="value-item-name">Checklist 7 Dias</div>
+                <div class="value-item-name">Método Completo 3 Fases</div>
                 <div class="value-item-price strikethrough">US$ 12</div>
             </div>
             
             <div class="value-item">
-                <div class="value-item-name">Comunidade Telegram Vitalícia</div>
-                <div class="value-item-price strikethrough">US$ 37</div>
+                <div class="value-item-name">Kit SOS Ansiedade (3 Áudios)</div>
+                <div class="value-item-price strikethrough">US$ 7</div>
             </div>
             
             <div class="value-item">
+                <div class="value-item-name">Checklist 7 Dias</div>
+                <div class="value-item-price strikethrough">US$ 5</div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-item-name">Comunidade Telegram Vitalícia</div>
+                <div class="value-item-price strikethrough">US$ 4</div>
+            </div>
+            
+            <div class="value-item value-total">
+                <div class="value-item-name">Valor Total Real</div>
+                <div class="value-item-price">US$ 47</div>
+            </div>
+            
+            <div class="final-price-row">
                 <div class="value-item-name">
-                    Valor Total Real
-                    <span class="highlight-number">Economia de 93%</span>
+                    Hoje Acesso por Apenas
+                    <span class="highlight-number">79% OFF</span>
                 </div>
-                <div class="value-item-price">US$ 9,97</div>
+                <div class="value-item-price">US$ 9,99</div>
             </div>
         </div>
     </section>
     
     <a href="SEU_LINK_HOTMART_AQUI" class="cta-button" onclick="fbq('track', 'AddToCart');">
         SIM, QUERO RESTAURAR MEU CASAMENTO
-        <span class="cta-subtext">Primeiros sinais em 48 horas • US$ 9,97</span>
+        <span class="cta-subtext">Primeiros sinais em 48 horas • US$ 9,99</span>
     </a>
     
     <div class="guarantee">
@@ -1071,7 +1155,7 @@
         
         <div class="choice-option recommended">
             <strong>Opção 2:</strong>
-            <p>Investir US$ 9,97 em um método científico que já funcionou para 1.240 mulheres — e ver os primeiros sinais de reconexão em 48 horas.</p>
+            <p>Investir US$ 9,99 em um método científico que já funcionou para 1.240 mulheres — e ver os primeiros sinais de reconexão em 48 horas.</p>
         </div>
         
         <p style="font-size: 1.3em; font-weight: 700; color: #d32f2f; text-align: center; margin-top: 40px;">
@@ -1079,9 +1163,9 @@
         </p>
     </section>
     
-    <a href="SEU_LINK_HOTMART_AQUI" class="cta-button" onclick="fbq('track', 'Purchase', {value: 9.97, currency: 'USD'});">
+    <a href="SEU_LINK_HOTMART_AQUI" class="cta-button" onclick="fbq('track', 'Purchase', {value: 9.99, currency: 'USD'});">
         GARANTIR MINHA VAGA NO DESAFIO
-        <span class="cta-subtext">Últimas vagas • US$ 9,97 • Acesso imediato</span>
+        <span class="cta-subtext">Últimas vagas • US$ 9,99 • Acesso imediato</span>
     </a>
     
 </div>
@@ -1093,6 +1177,35 @@
 </div>
 
 <script>
+// Temporizador cuenta regresiva (24 horas desde que se carga la página)
+function startCountdown() {
+    const now = new Date().getTime();
+    const endTime = now + (24 * 60 * 60 * 1000); // 24 horas
+    
+    const timer = setInterval(function() {
+        const currentTime = new Date().getTime();
+        const distance = endTime - currentTime;
+        
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+        }
+    }, 1000);
+}
+
+startCountdown();
+
+// Notificaciones de compra (20 nombres)
 const buyers = [
     {name: "Sonia Perez", location: "Rio de Janeiro"},
     {name: "Ana Clara", location: "São Paulo"},
@@ -1103,7 +1216,17 @@ const buyers = [
     {name: "Mariana Silva", location: "Salvador"},
     {name: "Renata Alves", location: "Recife"},
     {name: "Camila Rocha", location: "Fortaleza"},
-    {name: "Daniela Martins", location: "Manaus"}
+    {name: "Daniela Martins", location: "Manaus"},
+    {name: "Luciana Ferreira", location: "Goiânia"},
+    {name: "Adriana Souza", location: "Florianópolis"},
+    {name: "Gabriela Dias", location: "Vitória"},
+    {name: "Carolina Mendes", location: "Natal"},
+    {name: "Vanessa Torres", location: "João Pessoa"},
+    {name: "Roberta Campos", location: "Aracaju"},
+    {name: "Priscila Barros", location: "Maceió"},
+    {name: "Tatiana Ribeiro", location: "São Luís"},
+    {name: "Simone Cardoso", location: "Belém"},
+    {name: "Cristina Nascimento", location: "Campinas"}
 ];
 
 function showPurchaseNotification() {
