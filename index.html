@@ -46,13 +46,30 @@
             padding: 0 24px;
         }
         
+        /* Hero con imagen de fondo */
         .hero {
-            background: linear-gradient(165deg, #4a148c 0%, #6a1b9a 50%, #8e24aa 100%);
-            padding: 60px 0 70px;
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.85) 0%, rgba(142, 36, 170, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&q=80') center/cover;
+            padding: 80px 0 90px;
             text-align: center;
             color: white;
             position: relative;
             overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(74, 20, 140, 0.3) 0%, rgba(106, 27, 154, 0.6) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
@@ -61,28 +78,42 @@
             margin-bottom: 20px;
             line-height: 1.15;
             letter-spacing: -0.02em;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
         
         .hero .subheadline {
             font-size: 1.35em;
             font-weight: 300;
-            opacity: 0.95;
+            opacity: 0.98;
             line-height: 1.5;
             max-width: 620px;
             margin: 0 auto;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 30px;
+            margin-top: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .alert-urgency {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border-left: 6px solid #f57c00;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 6px solid #ff6f00;
             padding: 24px 28px;
             margin: 40px 0;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(245, 124, 0, 0.15);
+            box-shadow: 0 4px 20px rgba(255, 111, 0, 0.15);
         }
         
         .alert-urgency strong {
-            color: #d84315;
+            color: #e65100;
             font-size: 1.15em;
             display: block;
             margin-bottom: 8px;
@@ -90,7 +121,7 @@
         
         .alert-urgency p {
             font-size: 1.05em;
-            color: #4e342e;
+            color: #6d4c41;
             margin: 0;
         }
         
@@ -132,7 +163,7 @@
         }
         
         h2 .highlight {
-            color: #6a1b9a;
+            color: #9c27b0;
         }
         
         p {
@@ -173,7 +204,7 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: #6a1b9a;
+            color: #9c27b0;
             font-weight: 700;
             font-size: 1.4em;
         }
@@ -182,22 +213,119 @@
             background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
             padding: 36px;
             border-radius: 16px;
-            border-left: 6px solid #6a1b9a;
+            border-left: 6px solid #9c27b0;
             margin: 40px 0;
         }
         
         .neuro-box h3 {
-            color: #4a148c;
+            color: #6a1b9a;
             font-size: 1.4em;
             margin-bottom: 16px;
             font-weight: 700;
         }
         
         .neuro-box p {
-            color: #4a148c;
+            color: #6a1b9a;
             font-size: 1.1em;
             margin: 0;
             line-height: 1.7;
+        }
+        
+        /* Portadas estilo visual */
+        .method-covers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .cover-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+        }
+        
+        .cover-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .cover-image {
+            height: 280px;
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cover-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .cover-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 193, 7, 0.95);
+            color: #1a1a1a;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .cover-icon {
+            font-size: 4em;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover-title {
+            font-size: 1.6em;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover-subtitle {
+            font-size: 0.95em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover-content {
+            padding: 24px;
+        }
+        
+        .cover-content h4 {
+            font-size: 1.15em;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .cover-content p {
+            font-size: 0.95em;
+            color: #616161;
+            line-height: 1.6;
+            margin: 0;
         }
         
         .wave-item {
@@ -206,7 +334,7 @@
             margin: 24px 0;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-left: 5px solid #6a1b9a;
+            border-left: 5px solid #9c27b0;
             transition: transform 0.3s ease;
         }
         
@@ -215,13 +343,12 @@
         }
         
         .wave-item h3 {
-            color: #6a1b9a;
+            color: #9c27b0;
             font-size: 1.35em;
             margin-bottom: 12px;
             font-weight: 700;
         }
         
-        /* Estrellas testimonios */
         .stars {
             color: #ffc107;
             font-size: 1.2em;
@@ -235,7 +362,7 @@
             margin: 24px 0;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-left: 4px solid #6a1b9a;
+            border-left: 4px solid #9c27b0;
         }
         
         .testimonial-text {
@@ -248,11 +375,12 @@
         
         .testimonial-author {
             font-weight: 600;
-            color: #6a1b9a;
+            color: #9c27b0;
             font-size: 0.95em;
         }
         
-        .included-box {
+        /* Sección "Todo lo que llevas" */
+        .value-breakdown {
             background: white;
             padding: 40px;
             border-radius: 16px;
@@ -260,51 +388,72 @@
             margin: 50px 0;
         }
         
-        .included-item {
-            margin: 28px 0;
-            padding-left: 50px;
-            position: relative;
+        .value-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
         
-        .included-item::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 2px;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
+        .value-item:last-child {
+            border-bottom: none;
+            padding-top: 30px;
+            margin-top: 20px;
+            border-top: 3px solid #9c27b0;
+        }
+        
+        .value-item-name {
+            font-size: 1.15em;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        .value-item-price {
             font-size: 1.1em;
         }
         
-        .included-item h4 {
-            font-size: 1.2em;
-            color: #1a1a1a;
-            margin-bottom: 8px;
+        .value-item-price.strikethrough {
+            text-decoration: line-through;
+            color: #9e9e9e;
+        }
+        
+        .value-item:last-child .value-item-name {
+            font-size: 1.4em;
+            color: #9c27b0;
             font-weight: 700;
         }
         
-        /* Portadas de bonos */
+        .value-item:last-child .value-item-price {
+            font-size: 1.6em;
+            color: #2e7d32;
+            font-weight: 800;
+        }
+        
+        .highlight-number {
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-left: 12px;
+        }
+        
         .bonus-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 24px;
             margin: 40px 0;
         }
         
         .bonus-card {
-            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
             padding: 40px 24px;
             border-radius: 16px;
             text-align: center;
             color: white;
-            box-shadow: 0 8px 30px rgba(106, 27, 154, 0.3);
+            box-shadow: 0 8px 30px rgba(156, 39, 176, 0.3);
             transition: transform 0.3s ease;
         }
         
@@ -329,7 +478,6 @@
             margin: 0;
         }
         
-        /* Para quién es */
         .for-who-grid {
             display: grid;
             gap: 24px;
@@ -340,7 +488,7 @@
             background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
             padding: 32px;
             border-radius: 16px;
-            border-left: 5px solid #6a1b9a;
+            border-left: 5px solid #9c27b0;
             display: flex;
             align-items: flex-start;
             gap: 20px;
@@ -352,14 +500,14 @@
         }
         
         .for-who-item h4 {
-            color: #4a148c;
+            color: #6a1b9a;
             font-size: 1.3em;
             margin-bottom: 8px;
             font-weight: 700;
         }
         
         .for-who-item p {
-            color: #4a148c;
+            color: #6a1b9a;
             font-size: 1.05em;
             margin: 0;
         }
@@ -386,10 +534,9 @@
             margin-bottom: 12px;
         }
         
-        /* Botón animado */
         .cta-button {
             display: block;
-            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
             color: white;
             text-align: center;
             padding: 24px 48px;
@@ -398,7 +545,7 @@
             text-decoration: none;
             border-radius: 60px;
             margin: 40px 0;
-            box-shadow: 0 12px 40px rgba(106, 27, 154, 0.35);
+            box-shadow: 0 12px 40px rgba(156, 39, 176, 0.35);
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
@@ -414,7 +561,7 @@
         
         .cta-button:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 16px 50px rgba(106, 27, 154, 0.45);
+            box-shadow: 0 16px 50px rgba(156, 39, 176, 0.45);
             animation: none;
         }
         
@@ -426,7 +573,6 @@
             font-weight: 400;
         }
         
-        /* Notificaciones de compra */
         .purchase-notification {
             position: fixed;
             bottom: 20px;
@@ -460,7 +606,7 @@
         .notification-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -474,7 +620,7 @@
         }
         
         .notification-text strong {
-            color: #6a1b9a;
+            color: #9c27b0;
             display: block;
             font-size: 0.95em;
         }
@@ -506,12 +652,12 @@
             margin: 20px 0;
             border-radius: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            border-left: 4px solid #6a1b9a;
+            border-left: 4px solid #9c27b0;
         }
         
         .faq-question {
             font-weight: 700;
-            color: #6a1b9a;
+            color: #9c27b0;
             font-size: 1.15em;
             margin-bottom: 12px;
         }
@@ -568,6 +714,7 @@
                 padding: 20px 36px;
             }
             
+            .method-covers,
             .bonus-grid {
                 grid-template-columns: 1fr;
             }
@@ -582,7 +729,6 @@
 </head>
 <body>
 
-<!-- Notificación de compra -->
 <div class="purchase-notification" id="purchaseNotification">
     <div class="notification-icon">✓</div>
     <div class="notification-text">
@@ -592,9 +738,12 @@
 </div>
 
 <div class="hero">
-    <div class="container">
-        <h1>Ele Ainda Pode Voltar</h1>
-        <p class="subheadline">Mesmo que tenha saído de casa, esteja com outra<br>ou diga que nunca mais vai te amar</p>
+    <div class="hero-content">
+        <div class="container">
+            <h1>Ele Ainda Pode Voltar</h1>
+            <p class="subheadline">Mesmo que tenha saído de casa, esteja com outra<br>ou diga que nunca mais vai te amar</p>
+            <div class="hero-badge">✨ Mais de 1.240 mulheres já restauraram seus casamentos</div>
+        </div>
     </div>
 </div>
 
@@ -665,7 +814,7 @@
             </ul>
         </div>
         
-        <p style="font-size: 1.25em; font-weight: 700; color: #6a1b9a; margin-top: 36px; text-align: center;">
+        <p style="font-size: 1.25em; font-weight: 700; color: #9c27b0; margin-top: 36px; text-align: center;">
             A boa notícia? Você PODE reverter isso — mas NÃO do jeito que te ensinaram.
         </p>
     </section>
@@ -673,9 +822,9 @@
     <section>
         <h2 class="center">O Protocolo das <span class="highlight">3 Ondas Cerebrais</span></h2>
         
-        <p>Nos últimos 6 anos, ajudei <strong>mais de 1.240 mulheres</strong> a restaurarem seus casamentos — mesmo em casos que pareciam impossíveis.</p>
-        
-        <p>E descobri algo que a terapia tradicional ignora completamente:</p>
+        <p style="text-align: center; font-size: 1.15em; margin-bottom: 40px;">
+            Nos últimos 6 anos, ajudei <strong style="color: #9c27b0;">mais de 1.240 mulheres</strong> a restaurarem seus casamentos — mesmo em casos que pareciam impossíveis.
+        </p>
         
         <div class="neuro-box">
             <p style="font-weight: 600; font-size: 1.15em;">Para reativar o amor no cérebro dele, você precisa trabalhar em 3 camadas neurológicas específicas — e na ordem certa.</p>
@@ -699,7 +848,6 @@
         </div>
     </section>
     
-    <!-- SECCIÓN PARA QUIÉN ES -->
     <section>
         <h2 class="center">Para Quem É Este Método?</h2>
         
@@ -773,25 +921,41 @@
     </section>
     
     <section>
-        <h2 class="center">O Que Você Recebe HOJE<br>ao Entrar no Desafio</h2>
+        <h2 class="center">O Que Você Recebe HOJE</h2>
         
-        <div class="included-box">
-            <div class="included-item">
-                <h4>📘 Desafio Intensivo 48 Horas</h4>
-                <p><strong>Protocolo de Choque Emocional:</strong> O que fazer (e o que NUNCA fazer) nas primeiras 24h + 5 scripts exatos caso ele entre em contato + Checklist hora por hora</p>
-                <p style="margin-top: 12px;"><strong>Ativação da Reconexão Cerebral:</strong> As 3 técnicas neurocientíficas + Protocolo de ação + Como identificar que está funcionando</p>
+        <div class="method-covers">
+            <div class="cover-card">
+                <div class="cover-image">
+                    <div class="cover-badge">Dia 1-2</div>
+                    <div class="cover-icon">⚡</div>
+                    <div class="cover-title">Desafio 48h</div>
+                    <div class="cover-subtitle">Protocolo intensivo</div>
+                </div>
+                <div class="cover-content">
+                    <h4>📘 Reto Intensivo de 48 Horas</h4>
+                    <p><strong>Protocolo de Choque Emocional:</strong> O que fazer nas primeiras 24h + scripts exatos</p>
+                    <p style="margin-top: 12px;"><strong>Ativação da Reconexão Cerebral:</strong> 3 técnicas neurocientíficas do Dia 2</p>
+                </div>
             </div>
             
-            <div class="included-item">
-                <h4>📚 Método Completo das 3 Fases</h4>
-                <p><strong>Fase 1 – Silêncio Estratégico:</strong> Por que funciona + Quanto tempo aplicar + O que fazer durante o silêncio + Erros fatais</p>
-                <p style="margin-top: 8px;"><strong>Fase 2 – Restablecimento do Contacto:</strong> Quando começar + Técnica do contato gradual + Scripts de mensagens + Como reagir à resistência</p>
-                <p style="margin-top: 8px;"><strong>Fase 3 – Consolidação e Reconstrução da Intimidade:</strong> Reconstruindo intimidade + Evitando recaídas + Conversas difíceis + Plano de manutenção 60-90 dias</p>
+            <div class="cover-card">
+                <div class="cover-image">
+                    <div class="cover-badge">Completo</div>
+                    <div class="cover-icon">📚</div>
+                    <div class="cover-title">3 Fases</div>
+                    <div class="cover-subtitle">Método completo</div>
+                </div>
+                <div class="cover-content">
+                    <h4>📚 El Método Completo de 3 Fases</h4>
+                    <p><strong>Fase 1 –</strong> Silêncio Estratégico</p>
+                    <p><strong>Fase 2 –</strong> Restablecimento do Contacto</p>
+                    <p><strong>Fase 3 –</strong> Consolidação e Reconstrução</p>
+                </div>
             </div>
         </div>
         
-        <h2 class="center" style="margin-top: 60px;">Bônus Especiais Incluídos</h2>
-        <p class="lead">Recursos adicionais para acelerar seu processo de reconexão e te dar suporte emocional a cada passo</p>
+        <h2 class="center" style="margin-top: 80px;">Bônus Especiais Incluídos</h2>
+        <p class="lead">Recursos adicionais para acelerar seu processo de reconexão e te dar suporte emocional em cada etapa</p>
         
         <div class="bonus-grid">
             <div class="bonus-card">
@@ -812,11 +976,44 @@
                 <p>Acesso vitalício + suporte entre membros</p>
             </div>
         </div>
+    </section>
+    
+    <section>
+        <h2 class="center">Hoy te Llevas <span class="highlight">TODO Esto:</span></h2>
         
-        <div class="price-box">
-            <div class="old-price">Valor total: US$ 47</div>
-            <div class="new-price">HOJE: US$ 9,97</div>
-            <div class="instalment">Acesso imediato + Garantia de 7 dias</div>
+        <div class="value-breakdown">
+            <div class="value-item">
+                <div class="value-item-name">Desafio Intensivo 48 Horas</div>
+                <div class="value-item-price strikethrough">US$ 29</div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-item-name">Método Completo 3 Fases</div>
+                <div class="value-item-price strikethrough">US$ 47</div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-item-name">Kit SOS Ansiedade</div>
+                <div class="value-item-price strikethrough">US$ 19</div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-item-name">Checklist 7 Dias</div>
+                <div class="value-item-price strikethrough">US$ 12</div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-item-name">Comunidade Telegram Vitalícia</div>
+                <div class="value-item-price strikethrough">US$ 37</div>
+            </div>
+            
+            <div class="value-item">
+                <div class="value-item-name">
+                    Valor Total Real
+                    <span class="highlight-number">Economia de 93%</span>
+                </div>
+                <div class="value-item-price">US$ 9,97</div>
+            </div>
         </div>
     </section>
     
@@ -835,32 +1032,32 @@
         
         <div class="faq-item">
             <div class="faq-question">Funciona mesmo se ele estiver com outra?</div>
-            <div class="faq-answer">Sim. 38% das mulheres que restauraram seus casamentos com o método estavam exatamente nessa situação. O Protocolo trabalha no nível neurológico — independente de ele estar com outra pessoa ou não. O cérebro dele pode ser reprogramado mesmo nesse cenário.</div>
+            <div class="faq-answer">Sim. 38% das mulheres que restauraram seus casamentos com o método estavam exatamente nessa situação. O Protocolo trabalha no nível neurológico — independente de ele estar com outra pessoa ou não.</div>
         </div>
         
         <div class="faq-item">
             <div class="faq-question">E se ele já pediu o divórcio oficialmente?</div>
-            <div class="faq-answer">Ainda funciona. Enquanto os papéis não estiverem assinados, o método pode reverter a decisão dele. Mesmo que ele diga que "já decidiu", você tem uma janela neurológica para mudar isso. A dissociação afetiva é reversível até o momento da assinatura final.</div>
+            <div class="faq-answer">Ainda funciona. Enquanto os papéis não estiverem assinados, o método pode reverter a decisão dele. Mesmo que ele diga que "já decidiu", você tem uma janela neurológica para mudar isso.</div>
         </div>
         
         <div class="faq-item">
             <div class="faq-question">Preciso que ele saiba que estou fazendo isso?</div>
-            <div class="faq-answer">NÃO. Essa é a vantagem do Protocolo das 3 Ondas — você aplica sem ele saber. Ele só vai perceber quando começar a sentir diferente em relação a você. O método funciona através de mudanças no seu comportamento que ativam respostas neurológicas automáticas nele.</div>
+            <div class="faq-answer">NÃO. Essa é a vantagem do Protocolo das 3 Ondas — você aplica sem ele saber. Ele só vai perceber quando começar a sentir diferente em relação a você.</div>
         </div>
         
         <div class="faq-item">
             <div class="faq-question">Quanto tempo leva para ver resultados?</div>
-            <div class="faq-answer">Os primeiros sinais aparecem em 48 horas (mudança no comportamento dele, mensagem inesperada, olhar diferente). A reconexão completa pode levar de 2 semanas a 3 meses, dependendo da gravidade da situação e da consistência na aplicação do método.</div>
+            <div class="faq-answer">Os primeiros sinais aparecem em 48 horas (mudança no comportamento dele, mensagem inesperada, olhar diferente). A reconexão completa pode levar de 2 semanas a 3 meses.</div>
         </div>
         
         <div class="faq-item">
             <div class="faq-question">Funciona se não temos filhos?</div>
-            <div class="faq-answer">Sim. O método funciona independente de terem filhos ou não. A reconexão cerebral acontece da mesma forma. A presença ou ausência de filhos não afeta os padrões neurológicos que estamos trabalhando.</div>
+            <div class="faq-answer">Sim. O método funciona independente de terem filhos ou não. A reconexão cerebral acontece da mesma forma.</div>
         </div>
         
         <div class="faq-item">
             <div class="faq-question">Recebo tudo na hora?</div>
-            <div class="faq-answer">SIM. Assim que o pagamento for confirmado, você recebe acesso imediato a TODO o material + link da Comunidade Telegram no seu e-mail. Pode começar o Desafio nos próximos 5 minutos.</div>
+            <div class="faq-answer">SIM. Assim que o pagamento for confirmado, você recebe acesso imediato a TODO o material + link da Comunidade Telegram no seu e-mail.</div>
         </div>
     </section>
     
@@ -896,7 +1093,6 @@
 </div>
 
 <script>
-// Sistema de notificaciones de compra
 const buyers = [
     {name: "Sonia Perez", location: "Rio de Janeiro"},
     {name: "Ana Clara", location: "São Paulo"},
@@ -924,10 +1120,8 @@ function showPurchaseNotification() {
     }, 5000);
 }
 
-// Mostrar primera notificación después de 10 segundos
 setTimeout(showPurchaseNotification, 10000);
 
-// Luego cada 25-40 segundos aleatoriamente
 setInterval(() => {
     const randomDelay = Math.floor(Math.random() * 15000) + 25000;
     setTimeout(showPurchaseNotification, randomDelay);
