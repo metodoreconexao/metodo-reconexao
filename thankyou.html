@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado - Seu Acesso Está Confirmado!</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '27004038235857209');
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', {value: 9.99, currency: 'USD'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=27004038235857209&ev=PageView&noscript=1"
+    /></noscript>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .success-icon {
+            font-size: 6em;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .headline {
+            font-size: 2.8em;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .subheadline {
+            font-size: 1.4em;
+            text-align: center;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+        
+        .info-box h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .step {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 25px 0;
+            border-left: 6px solid #FFD700;
+        }
+        
+        .step-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #FFD700;
+            margin-bottom: 12px;
+        }
+        
+        .step-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .step-description {
+            font-size: 1.15em;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        .reminder-box {
+            background: rgba(255, 215, 0, 0.25);
+            border: 3px solid #FFD700;
+            border-radius: 16px;
+            padding: 35px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .reminder-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #FFD700;
+            font-weight: 700;
+        }
+        
+        .reminder-box p {
+            font-size: 1.2em;
+            line-height: 1.7;
+        }
+        
+        .social-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .social-box h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .social-box p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        
+        .social-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            font-size: 1.3em;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 10px;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .social-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 2.2em;
+            }
+            
+            .subheadline {
+                font-size: 1.2em;
+            }
+            
+            .success-icon {
+                font-size: 4em;
+            }
+            
+            .social-button {
+                display: block;
+                margin: 10px auto;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">🎉</div>
+        
+        <h1 class="headline">Parabéns! Sua Compra Foi Confirmada!</h1>
+        <p class="subheadline">Sua jornada de reconexão começa AGORA</p>
+        
+        <div class="info-box">
+            <h2>📧 Próximos Passos:</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title">Todo o Conteúdo Estará Disponível em 48 Horas</div>
+                <div class="step-description">
+                    O material completo do Método ReConexão estará liberado na sua área de membros em até 48 horas após a confirmação do pagamento.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">Você Receberá um Email da Hotmart</div>
+                <div class="step-description">
+                    Assim que todo o material estiver disponível, você receberá um email com o link de acesso completo à sua área de membros. 
+                    <strong>Importante:</strong> Verifique também a pasta de spam/promoções.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">Prepare-se Para Começar!</div>
+                <div class="step-description">
+                    Use estas 48 horas para se preparar mentalmente e emocionalmente para aplicar o método. 
+                    Quando o acesso chegar, comece IMEDIATAMENTE — não espere "o momento certo".
+                </div>
+            </div>
+        </div>
+        
+        <div class="reminder-box">
+            <h3>⚡ Lembre-se Disso:</h3>
+            <p>
+                <strong>O Método ReConexão funciona</strong> — mas apenas se você APLICAR. 
+                Não deixe este conteúdo guardado na gaveta digital esperando "o momento certo". 
+            </p>
+            <p style="margin-top: 20px; font-weight: 600;">
+                O momento certo é AGORA. Sua transformação começa hoje, não amanhã.
+            </p>
+        </div>
+        
+        <div class="info-box">
+            <h2>❓ Precisa de Ajuda?</h2>
+            <p style="text-align: center; font-size: 1.2em; line-height: 1.9;">
+                Se tiver qualquer dúvida sobre o acesso, o método, ou precisar de suporte:<br><br>
+                📧 Email: <strong>contato-entrenos@outlook.com</strong><br>
+                ⏰ Respondemos em até 24 horas
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px; opacity: 0.8;">
+            <p style="font-size: 0.95em;">© 2025 Método ReConexão — Todos os direitos reservados</p>
+            <p style="margin-top: 8px; font-size: 0.9em;">Política de Privacidade | Termos de Uso</p>
+        </div>
+    </div>
+</body>
+</html>
